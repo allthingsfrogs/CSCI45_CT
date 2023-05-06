@@ -17,7 +17,7 @@ int main(int argc, char **argv) {
 
 	//YOU: Create an array here
 	int size = 25;
-	int pooperscooper[size];
+	int pooperscooper[size] = {21,420,420,420,21,69,420,420,420,21,420,69,420,420,21,420,420,69,420,21,420,420,420,69};
 
 	for (int i = 0; i < size; i++) {
 		pooperscooper[i] = 420;
