@@ -6,7 +6,6 @@ extern "C" {
 //	int function_one(unsigned char *in, unsigned char *out, size_t width, size_t height);
 //	int function_two(int *arr, size_t n, unsigned int stride);
 //}
-
 	int function_one(unsigned char *in, unsigned char *out, size_t width, size_t height) {
 		int arr_size = width * height;
 		for (int i = 0; i < arr_size; i++) {
@@ -45,13 +44,13 @@ int main(int argc, char **argv) {
 	//OR... use a highres timer
 	//Calling the assembly function like this
 	clock_t start_time = clock();
-	retval = function_one(array_1, array_1_out, 13, 1);
+	retval = function_one(array_1, array_1_out, 13, 1);//
 	clock_t end_time = clock();
 	cout << "Running time for function_one: " << end_time - start_time << " ticks\n";
 	cout << "function_one returned: " << retval << endl;
 
 	start_time = clock();
-	retval = function_two(array_2, array_2_size, 1);
+	retval = function_two(array_2, array_2_size, 1);//
 	end_time = clock();
 	cout << "Running time for function_one: " << end_time - start_time << " ticks\n";
 	cout << "function_one returned: " << retval << endl;
