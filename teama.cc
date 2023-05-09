@@ -3,10 +3,10 @@
 using namespace std;
 
 extern "C" {
-//	int function_one(unsigned char *in, unsigned char *out, size_t width, size_t height);
-//	int function_two(int *arr, size_t n, unsigned int stride);
-//}
-	int function_one(unsigned char *in, unsigned char *out, size_t width, size_t height) {
+	int function_one(unsigned char *in, unsigned char *out, size_t width, size_t height);
+	int function_two(int *arr, size_t n, unsigned int stride);
+}
+/*	int NOTfunction_one(unsigned char *in, unsigned char *out, size_t width, size_t height) {
 		int arr_size = width * height;
 		for (int i = 0; i < arr_size; i++) {
 			out[i] = 42;
@@ -16,15 +16,13 @@ extern "C" {
 		return *out;
 	}	
 
-	int function_two(int *arr, size_t n, unsigned int stride) {
+	int NOTfunction_two(int *arr, size_t n, unsigned int stride) {
 		for (size_t i = 0; i <= n; i++) {
 			arr[i] = i * 3;
 		}
 		return *arr;
 	}
-
-//*/
-}
+*/
 
 int main(int argc, char **argv) {
 	int retval;
@@ -36,7 +34,7 @@ int main(int argc, char **argv) {
 
 	//YOU: Create an array here
 	unsigned char array_1[13] = {21,42,42,42,42,21,69,42,42,42,21,42,69};
-	unsigned char array_1_out[13]; 
+	unsigned char array_1_out[0]; 
 
 	int array_2[13] = {1,3,5,7,9,11,13,15,17,19,21,23,25};
 	size_t array_2_size = 13;
@@ -45,12 +43,23 @@ int main(int argc, char **argv) {
 	//Calling the assembly function like this
 	clock_t start_time = clock();
 	retval = function_one(array_1, array_1_out, 13, 1);//
+	cout << "array1: " << endl;	
+	for (int i = 0; i < 13; i++) {
+		cout << array_1[i] << endl;
+	}
+
 	clock_t end_time = clock();
 	cout << "Running time for function_one: " << end_time - start_time << " ticks\n";
 	cout << "function_one returned: " << retval << endl;
 
 	start_time = clock();
 	retval = function_two(array_2, array_2_size, 1);//
+	cout << "array2: " << endl;	
+	for (int i = 0; i < 13; i++) {
+		cout << array_2[i] << endl;
+	}
+
+	
 	end_time = clock();
 	cout << "Running time for function_one: " << end_time - start_time << " ticks\n";
 	cout << "function_one returned: " << retval << endl;
